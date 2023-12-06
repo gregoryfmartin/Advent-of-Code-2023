@@ -41,5 +41,5 @@ Get-Content '.\DataSource.txt' | ForEach-Object {
 
     ($Res.Length -EQ 1) ? ($CalibrationSum += [Convert]::ToInt16("$($Res)$($Res)")) : ($CalibrationSum += [Convert]::ToInt16("$($Res[0])$($Res[$Res.Length - 1])")) | Out-Null
 }
-# Write-Progress -Activity 'Calibrating' -Id 1 -Completed
+Write-Progress -Activity 'Calibrating' -Id 1 -Completed
 Write-Host "Calibration Complete! Value is $($CalibrationSum)."
