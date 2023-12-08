@@ -26,7 +26,7 @@ struct MarbleResult {
 
     static auto CreateFromString(const std::string& initStr) noexcept -> MarbleResult {
         std::string a = initStr;
-        std::string b = initStr.substr(0, a.find(" "));                 // Draw Quantity
+        std::string b = initStr.substr(0, a.find(" "));                     // Draw Quantity
         std::string c = initStr.substr(a.find(" ") + 1, std::string::npos); // Draw Color
         MarbleResult t;
 
@@ -76,7 +76,7 @@ struct Game {
         // Elm 1-N = Results
         Game a;
         MarbleResults b;
-        auto fwdItr   = initStr.begin();
+        auto fwdItr = initStr.begin();
 
         a.id = std::atoi((*fwdItr).c_str());
         fwdItr++;
