@@ -45,6 +45,19 @@ struct MarbleResult {
 
         return t;
     }
+
+    auto GetColorString() noexcept -> std::string {
+        switch(drawColor) {
+            case MarbleColor::Red:
+                return "Red";
+            case MarbleColor::Green:
+                return "Green";
+            case MarbleColor::Blue:
+                return "Blue";
+        }
+
+        return "???";
+    }
 };
 
 using MarbleResults = std::vector<MarbleResult>;
@@ -117,6 +130,22 @@ struct GameCoordinator {
     auto IsGamePossibleGivenModel(const Game& playedGame) noexcept -> bool {
         return false;
     }
+
+    auto PrintGames() noexcept -> void {
+        for(auto& game : games) {
+            std::cout << "Game ID: " << (int)game.id << std::endl;
+            std::cout << "\tResults: ";
+            for(auto& result : game.results) {
+                for(auto& resultStats : result) {
+                    std::cout << (int)resultStats.drawQuantity <<
+                        " " << resultStats.GetColorString() <<
+                        ", ";
+                }
+                std::cout << "; ";
+            }
+            std::cout << std::endl;
+        }
+    }
 };
 
 int main() {
@@ -141,6 +170,8 @@ int main() {
 
         gameCoordinator.games.push_back(Game::CreateFromString(fileLineData));
     }
+
+    gameCoordinator.PrintGames();
 
     return 0;
 }
