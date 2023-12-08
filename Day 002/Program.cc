@@ -202,7 +202,7 @@ struct GameCoordinator {
 
     auto SolveThatPuzzlePat() const noexcept -> void {
         std::cout << "I'd like to solve that puzzle, Pat!" << std::endl;
-        std::cout << "Checking my gambling results... 💰🤑" << std::endl;
+        std::cout << L"Checking my gambling results... 💰🤑" << std::endl;
 
         int idSum = 0;
 
